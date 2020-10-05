@@ -1,0 +1,198 @@
+<html>
+
+<head>
+    <style>
+        table {
+            margin: auto 1vw 3vh 1vw;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="display: inline; margin: 0">
+        <table border=1 id="cal0">
+            <caption>January</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal1">
+            <caption>February</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal2">
+            <caption>March</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal3">
+            <caption>April</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal4">
+            <caption>May</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal5">
+            <caption>June</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal6">
+            <caption>July</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal7">
+            <caption>August</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal8">
+            <caption>September</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal9">
+            <caption>October</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal10">
+            <caption>November</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+        <table border=1 id="cal11">
+            <caption>December</caption>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const year = parseInt(prompt('Enter the year'));
+        for (let i = 0; i < 12; i++) {
+            const month_date = new Date(year, i);
+            const firstDay = month_date.getDay();
+            const id = 'cal' + i;
+            const calender_body = document.getElementById(id);
+            let date = 1;
+            for (let j = 0; j < 6; j++) {
+                const row = document.createElement('tr');
+                for (let k = 0; k < 7; k++) {
+                    if (j === 0 && k < firstDay) {
+                        const cell = document.createElement("td");
+                        const cellText = document.createTextNode('');
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth(i, year)) {
+                        break;
+                    } else {
+                        const cell = document.createElement("td");
+                        const cellText = document.createTextNode(date);
+                        cell.appendChild(cellText);
+                        row.appendChild(cell);
+                        date++;
+                    }
+                }
+                calender_body.appendChild(row);
+            }
+        }
+
+        function daysInMonth(month, year) {
+            return 32 - new Date(year, month, 32).getDate();
+        }
+    </script>
+
+</body>
+
+</html>
